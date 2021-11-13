@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GeneratorType;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
@@ -17,34 +16,34 @@ import org.hibernate.annotations.NaturalId;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long roleId;
+    private Long Id;
 
     @Enumerated(EnumType.STRING)
     @NaturalId
-    @Column(length = 60)
+    @Column(length = 40)
     private RoleName name;
 
     public Role() {
     }
 
-    public Role(RoleName name) {
-        this.name = name;
+    public Role(RoleName roleName) {
+        this.name = roleName;
     }
 
     public Long getId() {
-        return roleId;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.roleId = id;
+        this.Id = id;
     }
 
     public RoleName getName() {
         return name;
     }
 
-    public void setName(RoleName name) {
-        this.name = name;
+    public void setRoleName(RoleName roleName) {
+        this.name = roleName;
     }
 
 }

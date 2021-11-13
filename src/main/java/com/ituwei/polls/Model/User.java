@@ -19,7 +19,6 @@ import javax.validation.constraints.Size;
 
 import com.ituwei.polls.Model.audit.DateAudit;
 
-import org.hibernate.annotations.ManyToAny;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
@@ -34,6 +33,7 @@ public class User extends DateAudit {
     @NotBlank
     @Size(max = 15)
     private String userName;
+
     @NotBlank
     @Size(max = 40)
     private String name;
@@ -43,12 +43,13 @@ public class User extends DateAudit {
     @Size(max = 40)
     @Email
     private String userEmail;
+
     @NotBlank
     @Size(max = 100)
     private String userPassword;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
     public User(String userName, String name, String userEmail, String userPassword) {
