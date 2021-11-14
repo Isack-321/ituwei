@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table(name = "user_roles")
+@Table(name = "roles")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,14 +20,14 @@ public class Role {
 
     @Enumerated(EnumType.STRING)
     @NaturalId
-    @Column(length = 40)
+    @Column(length = 60)
     private RoleName name;
 
     public Role() {
     }
 
-    public Role(RoleName roleName) {
-        this.name = roleName;
+    public Role(RoleName name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -42,8 +42,8 @@ public class Role {
         return name;
     }
 
-    public void setRoleName(RoleName roleName) {
-        this.name = roleName;
+    public void setName(RoleName name) {
+        this.name = name;
     }
 
 }

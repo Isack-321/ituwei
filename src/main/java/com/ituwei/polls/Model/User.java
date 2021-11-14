@@ -28,7 +28,7 @@ public class User extends DateAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     @NotBlank
     @Size(max = 15)
@@ -42,32 +42,32 @@ public class User extends DateAudit {
     @NotBlank
     @Size(max = 40)
     @Email
-    private String userEmail;
+    private String email;
 
     @NotBlank
     @Size(max = 100)
-    private String userPassword;
+    private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public User(String userName, String name, String userEmail, String userPassword) {
+    public User(String userName, String name, String email, String password) {
         this.userName = userName;
         this.name = name;
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
+        this.email = email;
+        this.password = password;
     }
 
     public User() {
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUserName() {
@@ -86,20 +86,20 @@ public class User extends DateAudit {
         this.name = name;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setpassword(String password) {
+        this.password = password;
     }
 
     public Set<Role> getRoles() {
