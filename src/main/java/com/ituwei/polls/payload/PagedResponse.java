@@ -1,7 +1,9 @@
 package com.ituwei.polls.payload;
 
-public class PagedResponse{
-    
+import java.util.*;
+
+public class PagedResponse<T> {
+
     private List<T> content;
     private int page;
     private int size;

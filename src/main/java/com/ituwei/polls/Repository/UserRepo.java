@@ -2,7 +2,6 @@ package com.ituwei.polls.Repository;
 
 import java.util.List;
 import java.util.Optional;
-
 import com.ituwei.polls.Model.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,4 +18,6 @@ public interface UserRepo extends JpaRepository<User, Long> {
     Boolean existsByUserName(String username);
 
     Boolean existsByEmail(String email);
+
+    Optional<User> findByUserName(String userName);
 }
